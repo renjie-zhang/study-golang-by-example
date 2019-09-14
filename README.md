@@ -1,2 +1,3 @@
 # Go-Example
-Some Golang example
+记录go基础以及常犯错误  
+
