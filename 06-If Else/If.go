@@ -3,7 +3,7 @@
  * @version:
  * @Author: renjie.zhang
  * @Date: 2019-09-19 17:03:54
- * @LastEditTime: 2019-09-19 17:11:11
+ * @LastEditTime: 2019-09-20 09:13:51
  */
 package main
 
@@ -19,5 +19,4 @@ func main() {
 	if 8%4 == 0 {
 		fmt.Println("8 is divisible by 4")
 	}
-	if num := 
 }
