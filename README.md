@@ -1,3 +1,2 @@
 # Go-Example
-记录go基础以及常犯错误   
-1、概述及初体验 https://github.com/renjie-zhang/Go-Example/blob/master/HelloWorld/Hello.md
+通过example进行入门，以常见坑点，踩实了之后再进行接下来的学习。
