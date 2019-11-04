@@ -1,2 +1,3 @@
-# Go-Example
-通过example进行入门，以常见坑点，踩实了之后再进行接下来的学习。
+# Study-Golang-By-Example
+通过例子学习Golang
+详情请查看 [wiki]: https://github.com/renjie-zhang/Study-Golang-By-Example/wiki/Study-Golang-By-Example  
