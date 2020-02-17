@@ -1,9 +1,18 @@
 /*
- * @Descripttion:
- * @version:
- * @Author: renjie.zhang
- * @Date: 2019-11-02 21:51:42
- * @LastEditTime: 2019-11-02 21:54:55
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package main
 
@@ -16,20 +25,20 @@ func main() {
 	f, _ := strconv.ParseFloat("1.234", 64)
 	fmt.Println(f)
 
-	i,_ := strconv.ParseInt("123",0,64)
+	i, _ := strconv.ParseInt("123", 0, 64)
 	fmt.Println(i)
 
-	d,_ := strconv.ParseInt("0x1c8",0,64)
+	d, _ := strconv.ParseInt("0x1c8", 0, 64)
 	fmt.Println(d)
 
 	u, _ := strconv.ParseUint("789", 0, 64)
 	fmt.Println(u)
-	
+
 	k, _ := strconv.Atoi("135")
 	fmt.Println(k)
-	
+
 	_, e := strconv.Atoi("wat")
-    fmt.Println(e)
+	fmt.Println(e)
 }
 
 /*
@@ -40,4 +49,3 @@ func main() {
 135
 strconv.Atoi: parsing "wat": invalid syntax
 */
-
