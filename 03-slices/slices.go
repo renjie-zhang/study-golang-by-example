@@ -19,36 +19,29 @@ package main
 import "fmt"
 
 func main() {
+	s := make([]string, 3)
+	fmt.Println("default value:", s)
 
-	//create a array
-	var temp [5]int
-	//default an array is default-value
-	fmt.Println("temp:", temp)
+	s[0] = "a"
+	s[1] = "b"
+	s[2] = "c"
+	fmt.Println("get", s)
+	fmt.Println("length:", len(s))
+	s = append(s, "d")
+	s = append(s, "e")
+	fmt.Println("after append", s)
+	fmt.Println("after append length", len(s))
 
-	temp[2] = 100
-	fmt.Println("set", temp)
-	fmt.Println("get", temp[2])
-	//len() get the length of array
-	fmt.Println(len(temp))
+	c := make([]string, len(s))
+	copy(c, s)
+	fmt.Println("s copy from c", c)
+	a1 := s[:5]
+	a2 := s[2:5]
+	a3 := s[2:]
+	fmt.Println(a1, a2, a3)
 
-	b := [5]int{1, 2, 3, 4, 5}
-	fmt.Println(b)
+	s[1] = "z"
+	fmt.Println("update s[1] set value is z",s)
+	fmt.Println(c)
 
-	var twoD [2][3]int
-	for i := 0; i < 2; i++ {
-		for j := 0; j < 3; j++ {
-			twoD[i][j] = i + j
-		}
-	}
-	fmt.Println("twoD:", twoD)
 }
-
-/*
-out
-temp: [0 0 0 0 0]
-set [0 0 100 0 0]
-get 100
-5
-[1 2 3 4 5]
-twoD: [[0 1 2] [1 2 3]]
-*/

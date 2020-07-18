@@ -19,28 +19,43 @@ package main
 import "fmt"
 
 func main() {
-	m := make(map[string]int)
+	result := plus(3, 4)
+	fmt.Println("plus=", result)
 
-	m["key1"] = 1
-	m["key2"] = 2
+	x,y := multipleValuesFunction(1,2)
+	fmt.Println("multipleValuesFunction get value x：",x)
+	fmt.Println("multipleValuesFunction get value y：",y)
 
-	fmt.Println("map:", m)
+	value := variadicFunction(1,2,3,4,5)
+	fmt.Println("variadicFunction get value :",value)
 
-	v1 := m["key1"]
-	fmt.Println("v1 from map：", v1)
-
-	fmt.Println("length=", len(m))
-
-	delete(m, "key2")
-
-	fmt.Println("after delete from m,m=", m)
-
+	closure := closureFunction()
+	fmt.Println("closure first count : ",closure())
+	fmt.Println("closure second count : ",closure())
+	newClosure := closureFunction()
+	fmt.Println("new closure fist count:",newClosure())
 }
 
-/*
-输出
-map: map[key1:1 key2:2]
-v1 from map： 1
-length= 2
-after delete from m,m= map[key1:1]
-*/
+func plus(a int, b int) int {
+	return a + b
+}
+
+func multipleValuesFunction(x int ,y int) (int ,int) {
+	return x, y
+}
+
+func variadicFunction(nums ...int) int {
+	var result int
+	for i := 0; i < len(nums); i++ {
+		result = result + nums[i]
+	}
+	return result
+}
+
+func closureFunction() func() int{
+	i := 0
+	return func() int {
+		i++
+		return i
+	}
+}
