@@ -16,14 +16,31 @@
  */
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	VariadicFunctions(2, 3, 4, 5)
-}
+	m := make(map[string]int,10)
+	fmt.Println("after new a map:", m)
+	// add
+	m["key1"] = 1
+	m["key2"] = 2
+	m["key3"] = 3
+	fmt.Println("after add element to map:", m)
+	// delete
+	delete(m, "key2")
+	fmt.Println("after delete element from map:", m)
+	// update
+	m["key1"] = 10
+	fmt.Println("after update element from map:", m)
+	// get
+	fmt.Println("after get value from map: ", m["key1"])
 
-func VariadicFunctions(nums ...int) {
-	for i := 0; i < len(nums); i++ {
-		fmt.Printf("%v := %v \n", i, nums[i])
+	for key,value := range m{
+		// 由于map与slice的element是共享的，
+		//所以在循环中修改element会体现到原有的容器中
+		fmt.Println("get a key from map： ",key)
+		fmt.Println("get a value from map: ",value)
 	}
 }

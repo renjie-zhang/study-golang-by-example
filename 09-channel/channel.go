@@ -16,11 +16,27 @@
  */
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	fmt.Println("Hello World")
+	messages := make(chan string)
 
+	go func() {
+		messages <- "ping"
+	}()
+	go func() {
+		messages <- "pong"
+	}()
+
+	for i := 0; i < 2; i++ {
+		fmt.Println("messages", <-messages)
+	}
+
+	bufferChannel := make(chan string,2)
+	bufferChannel <- "one"
+	bufferChannel <- "two"
+	fmt.Println("one message :",<-bufferChannel)
+	fmt.Println("two message :",<-bufferChannel)
 }
-
-//先行惯例，来一个hello world
