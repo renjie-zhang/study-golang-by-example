@@ -18,9 +18,20 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func main() {
+	channelDemo()
+
+	synchronizationByChannel()
+
+	closeChannel()
+
+	rangOverChannel()
+}
+
+func channelDemo() {
 	messages := make(chan string)
 
 	go func() {
@@ -34,9 +45,60 @@ func main() {
 		fmt.Println("messages", <-messages)
 	}
 
-	bufferChannel := make(chan string,2)
+	bufferChannel := make(chan string, 2)
 	bufferChannel <- "one"
 	bufferChannel <- "two"
-	fmt.Println("one message :",<-bufferChannel)
-	fmt.Println("two message :",<-bufferChannel)
+	fmt.Println("one message :", <-bufferChannel)
+	fmt.Println("two message :", <-bufferChannel)
+}
+
+func synchronizationByChannel() {
+	done := make(chan bool, 1)
+	go worker(done)
+	<-done
+}
+
+func worker(done chan bool) {
+	fmt.Print("working...")
+	time.Sleep(time.Second)
+	fmt.Println("DONE")
+	done <- true
+}
+
+func closeChannel() {
+	jobs := make(chan int, 5)
+	done := make(chan bool, 1)
+	go func() {
+		for {
+			j, more := <-jobs
+			if more {
+				fmt.Printf("receive a job, job is %d\n", j)
+			} else {
+				fmt.Printf("don't receive a job\n")
+				done <- true
+				return
+			}
+		}
+	}()
+
+	for j := 0; j <= 3; j++ {
+		jobs <- j
+		fmt.Printf("send a job %d\n", j)
+	}
+
+	close(jobs)
+
+	fmt.Println("send all jobs")
+
+	<-done
+}
+
+func rangOverChannel(){
+	demo := make(chan int,2)
+	demo <- 1
+	demo <-2
+	close(demo)
+	for v := range demo {
+		fmt.Printf("a element %d from channel\n",v)
+	}
 }
