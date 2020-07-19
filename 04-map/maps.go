@@ -43,4 +43,27 @@ func main() {
 		fmt.Println("get a key from map： ",key)
 		fmt.Println("get a value from map: ",value)
 	}
+
+	// use map implement set map[type] bool
+	SetMap := make(map[int]bool,1)
+	SetMap[1] = true
+	SetMap[2] = true
+	// select a element
+	checkValueIsExisting(SetMap,2)
+
+	// delete
+	delete(SetMap,2)
+	fmt.Printf("after delete %d form map\n",2)
+	// select a element
+	checkValueIsExisting(SetMap,2)
+
 }
+
+func checkValueIsExisting(m map[int]bool,n int){
+	if m[n] {
+		fmt.Printf("element value = %d is existing\n",n)
+	}else {
+		fmt.Printf("element value = %d is not existing\n",n)
+	}
+}
+
