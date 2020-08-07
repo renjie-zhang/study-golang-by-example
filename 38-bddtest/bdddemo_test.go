@@ -14,45 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package main
+package bdd
 
 import (
-	"fmt"
-	"sort"
+	. "github.com/smartystreets/goconvey/convey"
+	"testing"
 )
-type byLength []string
 
-func (s byLength) Len() int {
-	return len(s)
+func TestSpec(t *testing.T){
+	Convey("Given 2 integer with a starting value", t, func() {
+		x := 3
+		y := 6
+
+		Convey(" add the two numbers", func() {
+			z := x+y
+
+			Convey("The result", func() {
+				So(z, ShouldEqual, 9)
+			})
+		})
+	})
 }
-
-func (s byLength) Swap(i, j int) {
-	s[i], s[j] = s[j], s[i]
-}
-
-func (s byLength) Less(i, j int) bool {
-	return len(s[i]) < len(s[j])
-}
-
-func main() {
-	sortDemo()
-	sortByFunction()
-}
-
-func sortDemo(){
-	strs := []string{"t", "d", "r", "y"}
-	sort.Strings(strs)
-	fmt.Println(strs)
-
-	ints := []int{1, 4, 53, 56, 23, 45}
-	sort.Ints(ints)
-	fmt.Println(ints)
-}
-
-func sortByFunction(){
-	fruits := []string{"peach", "banana", "apple"}
-	sort.Sort(byLength(fruits))
-	fmt.Println(fruits)
-}
-
-

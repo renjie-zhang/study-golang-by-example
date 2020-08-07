@@ -18,41 +18,18 @@ package main
 
 import (
 	"fmt"
-	"sort"
+	"reflect"
 )
-type byLength []string
 
-func (s byLength) Len() int {
-	return len(s)
+func main()  {
+	a := map[int]string{1:"one",2:"two",3:"three"}
+	b := map[int]string{1:"one",2:"two",3:"three"}
+	fmt.Println("map a is equal map b: ",reflect.DeepEqual(a,b))
+	c := []int{1,2,3}
+	d := []int{1,2,3}
+	fmt.Println("slice c is equal slice d: ",reflect.DeepEqual(c,d))
+	e := []int{3,2,1}
+	fmt.Println("slice d is equal slice e: ",reflect.DeepEqual(c,e))
+
+
 }
-
-func (s byLength) Swap(i, j int) {
-	s[i], s[j] = s[j], s[i]
-}
-
-func (s byLength) Less(i, j int) bool {
-	return len(s[i]) < len(s[j])
-}
-
-func main() {
-	sortDemo()
-	sortByFunction()
-}
-
-func sortDemo(){
-	strs := []string{"t", "d", "r", "y"}
-	sort.Strings(strs)
-	fmt.Println(strs)
-
-	ints := []int{1, 4, 53, 56, 23, 45}
-	sort.Ints(ints)
-	fmt.Println(ints)
-}
-
-func sortByFunction(){
-	fruits := []string{"peach", "banana", "apple"}
-	sort.Sort(byLength(fruits))
-	fmt.Println(fruits)
-}
-
-
