@@ -21,15 +21,14 @@ import (
 	"reflect"
 )
 
-func main()  {
-	a := map[int]string{1:"one",2:"two",3:"three"}
-	b := map[int]string{1:"one",2:"two",3:"three"}
-	fmt.Println("map a is equal map b: ",reflect.DeepEqual(a,b))
-	c := []int{1,2,3}
-	d := []int{1,2,3}
-	fmt.Println("slice c is equal slice d: ",reflect.DeepEqual(c,d))
-	e := []int{3,2,1}
-	fmt.Println("slice d is equal slice e: ",reflect.DeepEqual(c,e))
-
+func main() {
+	a := map[int]string{1: "one", 2: "two", 3: "three"}
+	b := map[int]string{1: "one", 2: "two", 3: "three"}
+	fmt.Println("map a is equal map b: ", reflect.DeepEqual(a, b))
+	c := []int{1, 2, 3}
+	d := []int{1, 2, 3}
+	fmt.Println("slice c is equal slice d: ", reflect.DeepEqual(c, d))
+	e := []int{3, 2, 1}
+	fmt.Println("slice d is equal slice e: ", reflect.DeepEqual(c, e))
 
 }

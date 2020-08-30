@@ -39,4 +39,3 @@ func main() {
 	http.HandleFunc("/headers", header)
 	http.ListenAndServe(":8080", nil)
 }
-

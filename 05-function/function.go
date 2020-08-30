@@ -22,25 +22,25 @@ func main() {
 	result := plus(3, 4)
 	fmt.Println("plus=", result)
 
-	x,y := multipleValuesFunction(1,2)
-	fmt.Println("multipleValuesFunction get value x：",x)
-	fmt.Println("multipleValuesFunction get value y：",y)
+	x, y := multipleValuesFunction(1, 2)
+	fmt.Println("multipleValuesFunction get value x：", x)
+	fmt.Println("multipleValuesFunction get value y：", y)
 
-	value := variadicFunction(1,2,3,4,5)
-	fmt.Println("variadicFunction get value :",value)
+	value := variadicFunction(1, 2, 3, 4, 5)
+	fmt.Println("variadicFunction get value :", value)
 
 	closure := closureFunction()
-	fmt.Println("closure first count : ",closure())
-	fmt.Println("closure second count : ",closure())
+	fmt.Println("closure first count : ", closure())
+	fmt.Println("closure second count : ", closure())
 	newClosure := closureFunction()
-	fmt.Println("new closure fist count:",newClosure())
+	fmt.Println("new closure fist count:", newClosure())
 }
 
 func plus(a int, b int) int {
 	return a + b
 }
 
-func multipleValuesFunction(x int ,y int) (int ,int) {
+func multipleValuesFunction(x int, y int) (int, int) {
 	return x, y
 }
 
@@ -52,7 +52,7 @@ func variadicFunction(nums ...int) int {
 	return result
 }
 
-func closureFunction() func() int{
+func closureFunction() func() int {
 	i := 0
 	return func() int {
 		i++

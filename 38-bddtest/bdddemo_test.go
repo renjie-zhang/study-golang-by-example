@@ -21,13 +21,13 @@ import (
 	"testing"
 )
 
-func TestSpec(t *testing.T){
+func TestSpec(t *testing.T) {
 	Convey("Given 2 integer with a starting value", t, func() {
 		x := 3
 		y := 6
 
 		Convey(" add the two numbers", func() {
-			z := x+y
+			z := x + y
 
 			Convey("The result", func() {
 				So(z, ShouldEqual, 9)

@@ -20,6 +20,7 @@ import (
 	"fmt"
 	"sort"
 )
+
 type byLength []string
 
 func (s byLength) Len() int {
@@ -39,7 +40,7 @@ func main() {
 	sortByFunction()
 }
 
-func sortDemo(){
+func sortDemo() {
 	strs := []string{"t", "d", "r", "y"}
 	sort.Strings(strs)
 	fmt.Println(strs)
@@ -49,10 +50,8 @@ func sortDemo(){
 	fmt.Println(ints)
 }
 
-func sortByFunction(){
+func sortByFunction() {
 	fruits := []string{"peach", "banana", "apple"}
 	sort.Sort(byLength(fruits))
 	fmt.Println(fruits)
 }
-
-

@@ -21,7 +21,7 @@ import (
 )
 
 func main() {
-	m := make(map[string]int,10)
+	m := make(map[string]int, 10)
 	fmt.Println("after new a map:", m)
 	// add
 	m["key1"] = 1
@@ -37,33 +37,32 @@ func main() {
 	// get
 	fmt.Println("after get value from map: ", m["key1"])
 
-	for key,value := range m{
+	for key, value := range m {
 		// 由于map与slice的element是共享的，
 		//所以在循环中修改element会体现到原有的容器中
-		fmt.Println("get a key from map： ",key)
-		fmt.Println("get a value from map: ",value)
+		fmt.Println("get a key from map： ", key)
+		fmt.Println("get a value from map: ", value)
 	}
 
 	// use map implement set map[type] bool
-	SetMap := make(map[int]bool,1)
+	SetMap := make(map[int]bool, 1)
 	SetMap[1] = true
 	SetMap[2] = true
 	// select a element
-	checkValueIsExisting(SetMap,2)
+	checkValueIsExisting(SetMap, 2)
 
 	// delete
-	delete(SetMap,2)
-	fmt.Printf("after delete %d form map\n",2)
+	delete(SetMap, 2)
+	fmt.Printf("after delete %d form map\n", 2)
 	// select a element
-	checkValueIsExisting(SetMap,2)
+	checkValueIsExisting(SetMap, 2)
 
 }
 
-func checkValueIsExisting(m map[int]bool,n int){
+func checkValueIsExisting(m map[int]bool, n int) {
 	if m[n] {
-		fmt.Printf("element value = %d is existing\n",n)
-	}else {
-		fmt.Printf("element value = %d is not existing\n",n)
+		fmt.Printf("element value = %d is existing\n", n)
+	} else {
+		fmt.Printf("element value = %d is not existing\n", n)
 	}
 }
-

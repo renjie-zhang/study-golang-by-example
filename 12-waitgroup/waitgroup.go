@@ -26,7 +26,7 @@ func main() {
 	workerDemo()
 }
 
-func workerDemo(){
+func workerDemo() {
 	var wg sync.WaitGroup
 
 	for i := 1; i <= 5; i++ {

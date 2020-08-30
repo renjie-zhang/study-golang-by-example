@@ -23,7 +23,7 @@ import (
 
 func main() {
 	f, _ := strconv.ParseFloat("1.234", 64)
-	fmt.Printf("value %f",f)
+	fmt.Printf("value %f", f)
 
 	i, _ := strconv.ParseInt("123", 0, 64)
 	fmt.Println(i)

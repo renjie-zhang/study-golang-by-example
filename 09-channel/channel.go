@@ -93,12 +93,12 @@ func closeChannel() {
 	<-done
 }
 
-func rangOverChannel(){
-	demo := make(chan int,2)
+func rangOverChannel() {
+	demo := make(chan int, 2)
 	demo <- 1
-	demo <-2
+	demo <- 2
 	close(demo)
 	for v := range demo {
-		fmt.Printf("a element %d from channel\n",v)
+		fmt.Printf("a element %d from channel\n", v)
 	}
 }
