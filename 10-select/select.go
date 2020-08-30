@@ -25,7 +25,7 @@ func main() {
 	selectDemo()
 	selectTimeOut()
 }
-func selectDemo(){
+func selectDemo() {
 	c1 := make(chan string)
 	c2 := make(chan string)
 
@@ -49,7 +49,7 @@ func selectDemo(){
 	}
 }
 
-func selectTimeOut(){
+func selectTimeOut() {
 	c1 := make(chan string, 1)
 
 	go func() {
@@ -63,8 +63,6 @@ func selectTimeOut(){
 	case <-time.After(time.Second * 1):
 		fmt.Println("time out")
 	}
-
-
 
 	c2 := make(chan string, 1)
 

@@ -41,7 +41,7 @@ func main() {
 	fmt.Println(a1, a2, a3)
 
 	s[1] = "z"
-	fmt.Println("update s[1] set value is z",s)
+	fmt.Println("update s[1] set value is z", s)
 	fmt.Println(c)
 
 }

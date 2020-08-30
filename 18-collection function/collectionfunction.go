@@ -71,8 +71,8 @@ func Map(vs []string, f func(string) string) []string {
 
 func main() {
 	var strs = []string{"peach", "apple", "pear", "plum"}
-	fmt.Printf("collection index is %d\n",Index(strs, "pear"))
-	fmt.Printf("collection include grape %t\n",Include(strs, "grape"))
+	fmt.Printf("collection index is %d\n", Index(strs, "pear"))
+	fmt.Printf("collection include grape %t\n", Include(strs, "grape"))
 	fmt.Println(Any(strs, func(v string) bool {
 		return strings.HasPrefix(v, "p")
 	}))

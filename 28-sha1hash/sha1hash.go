@@ -32,4 +32,3 @@ func main() {
 	fmt.Println(s)
 	fmt.Printf("%x\n", bs)
 }
-
