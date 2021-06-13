@@ -50,7 +50,7 @@ func main() {
 	//1.234000e+08
 	//1.234000E+08
 	fmt.Printf("%e\n", 123400000.0)
-	fmt.Printf("%E\n", 123400000.0)
+	fmt.Printf("%e\n", 123400000.0)
 	//"string"
 	fmt.Printf("%s\n", "\"string\"")
 	//"\"string\""
