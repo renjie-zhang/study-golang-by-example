@@ -14,19 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package util
+package main
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/unknwon/com"
+	"fmt"
+	"net/http"
 	"project_demo/pkg/setting"
+	"project_demo/routers"
 )
 
-func GetPage(context *gin.Context) int {
-	result := 0
-	page, _ := com.StrTo(context.Query("page")).Int()
-	if page > 0 {
-		result = (page - 1) * setting.PageSize
+func main() {
+
+	router := routers.InitRouter()
+	s := &http.Server{
+		Addr:           fmt.Sprintf(":%d", setting.HttpPort),
+		Handler:        router,
+		ReadTimeout:    setting.ReadTimeOut,
+		WriteTimeout:   setting.WriteTimeOut,
+		MaxHeaderBytes: 1 << 20,
 	}
-	return result
+
+	s.ListenAndServe()
 }

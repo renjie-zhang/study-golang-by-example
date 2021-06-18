@@ -13,12 +13,4 @@ require (
 
 )
 
-replace (
-	github.com/renjie-zhang/Study-Golang-By-Example/43-gin_example/project_demo/conf => ../Study-Golang-By-Example/43-gin_example/project_demo/pkg/conf
-	github.com/renjie-zhang/Study-Golang-By-Example/43-gin_example/project_demo/middleware => ../Study-Golang-By-Example/43-gin_example/project_demo/middleware
-	github.com/renjie-zhang/Study-Golang-By-Example/43-gin_example/project_demo/models => ../Study-Golang-By-Example/43-gin_example/project_demo/models
-	github.com/renjie-zhang/Study-Golang-By-Example/43-gin_example/project_demo/pkg/setting => ../Study-Golang-By-Example/43-gin_example/project_demo/pkg/setting
-	github.com/renjie-zhang/Study-Golang-By-Example/43-gin_example/project_demo/routers => ../Study-Golang-By-Example/43-gin_example/project_demo/routers
-	github.com/renjie-zhang/Study-Golang-By-Example/43-gin_example/project_demo/pkg/e => ../Study-Golang-By-Example/43-gin_example/project_demo/pkg/e
-	github.com/renjie-zhang/Study-Golang-By-Example/43-gin_example/project_demo/pkg/util => ../Study-Golang-By-Example/43-gin_example/project_demo/pkg/util
-)
+
