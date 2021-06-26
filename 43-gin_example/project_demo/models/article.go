@@ -84,11 +84,6 @@ func DeleteArticleById(id int) bool{
 }
 
 
-
-
-
-
-
 func (article *Article) BeforeCreate(scope *gorm.Scope) error{
 	return scope.SetColumn("CreatedOn",time.Now().Unix())
 }

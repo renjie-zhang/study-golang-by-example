@@ -16,7 +16,11 @@
  */
 package v1
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/unknwon/com"
+	"project_demo/pkg/e"
+)
 
 // @Summary Get multiple article tags
 // @Produce  json
@@ -26,6 +30,21 @@ import "github.com/gin-gonic/gin"
 // @Failure 500 {object} app.Response
 // @Router /api/v1/tags [get]
 func GetTags(context *gin.Context)  {
+	name := context.Param("name")
+	maps := make(map[string] interface{})
+	data := make(map[string]interface{})
+
+	if name != ""{
+		maps["name"] = name
+	}
+	var state int = -1
+	if arg := context.Query("state");arg != ""{
+		state = com.StrTo(arg).MustInt()
+		maps["state"] = state
+	}
+	code := e.SUCCESS
+
+	
 
 }
 // AddTag add tag
