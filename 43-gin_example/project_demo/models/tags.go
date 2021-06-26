@@ -24,3 +24,13 @@ type Tag struct {
 	ModifiedBy string `json:"modified_by"`
 	State int `json:"state"`
 }
+// GetTags 获取Tags
+func GetTags(pageNum int,pageSize int,maps interface{}) (tags []Tag){
+	db.Where(maps).Offset(pageNum).Limit(pageSize).Find(&tags)
+	return
+}
+
+func GetTagTotal(maps interface{}) (count int){
+	db.Model(&Tag{}).Where(maps).Count(&count)
+	return
+}
