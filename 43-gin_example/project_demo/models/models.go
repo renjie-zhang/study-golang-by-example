@@ -18,6 +18,7 @@ package models
 
 import (
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 	"log"
 	"project_demo/pkg/setting"
