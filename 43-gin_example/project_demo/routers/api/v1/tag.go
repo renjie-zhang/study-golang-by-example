@@ -28,11 +28,8 @@ import (
 )
 
 // @Summary Get multiple article tags
-// @Produce  json
 // @Param name query string false "Name"
 // @Param state query int false "State"
-// @Success 200 {object} app.Response
-// @Failure 500 {object} app.Response
 // @Router /api/v1/tags [get]
 func GetTags(context *gin.Context)  {
 	name := context.Param("name")
@@ -59,7 +56,11 @@ func GetTags(context *gin.Context)  {
 	})
 
 }
-// AddTag add tag
+// @Summary 新增文章标签
+// @Param name query string true "Name"
+// @Param state query int false "State"
+// @Param created_by query int false "CreatedBy"
+// @Router /api/v1/tags [post]
 func AddTag(context *gin.Context){
 	name := context.Query("name")
 	state := com.StrTo(context.DefaultQuery("state", "0")).MustInt()
@@ -89,7 +90,12 @@ func AddTag(context *gin.Context){
 	})
 
 }
-// EditTag edit tag
+// @Summary 修改文章标签
+// @Param id path int true "ID"
+// @Param name query string true "ID"
+// @Param state query int false "State"
+// @Param modified_by query string true "ModifiedBy"
+// @Router /api/v1/tags/{id} [put]
 func EditTag(context *gin.Context){
 	id := com.StrTo(context.Param("id")).MustInt()
 	name := context.Query("name")

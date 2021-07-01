@@ -20,7 +20,7 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-	"log"
+	"project_demo/pkg/logging"
 	"project_demo/pkg/setting"
 )
 
@@ -40,7 +40,7 @@ func init(){
 	)
 	sec,err := setting.Cfg.GetSection("database")
 	if err != nil{
-		log.Fatal(2,"Fail to get section database %v",err)
+		logging.Error(2,"Fail to get section database %v",err)
 	}
 	dbType = sec.Key("TYPE").String()
 	dbName = sec.Key("NAME").String()
@@ -56,7 +56,7 @@ func init(){
 		dbName))
 
 	if err != nil{
-		log.Println(err)
+		logging.Error(err)
 	}
 
 	gorm.DefaultTableNameHandler = func (db *gorm.DB, defaultTableName string) string  {

@@ -18,7 +18,7 @@ package setting
 
 import (
 	"github.com/go-ini/ini"
-	"log"
+	"project_demo/pkg/logging"
 	"time"
 )
 
@@ -37,7 +37,7 @@ func init() {
 	var err error
 	Cfg, err = ini.Load("conf/app.ini")
 	if err != nil {
-		log.Fatalf("Fail Load Config File %v", err)
+		logging.Fatal("Fail Load Config File %v", err)
 	}
 	LoadBase()
 	LoadServer()
@@ -53,7 +53,7 @@ func LoadBase() {
 func LoadServer() {
 	sec, err := Cfg.GetSection("server")
 	if err != nil {
-		log.Fatalf("Fail Load server %v", err)
+		logging.Fatal("Fail Load server %v", err)
 	}
 
 	HttpPort = sec.Key("HTTP_PORT").MustInt(8000)
@@ -64,7 +64,7 @@ func LoadServer() {
 func LoadApplication() {
 	sec, err := Cfg.GetSection("app")
 	if err != nil {
-		log.Fatalf("Fail Load Application Message %v", err)
+		logging.Fatal("Fail Load Application Message %v", err)
 	}
 
 	JwtSecret = sec.Key("JWT_SECRET").MustString("!@)*#)!@U#@*!@!)")
